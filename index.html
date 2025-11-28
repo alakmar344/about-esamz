@@ -4,15 +4,53 @@
 <meta charset="UTF-8">
 <title>ESAMZ – Overview</title>
 
-<!-- Minimal clean dark theme -->
 <style>
     body {
         background: #000;
         color: #e5e5e5;
         font-family: Arial, sans-serif;
         line-height: 1.65;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 230px;
+        background: #0a0a0a;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 25px 20px;
+        overflow-y: auto;
+        border-right: 1px solid #222;
+    }
+
+    .sidebar h2 {
+        color: #fff;
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .sidebar a {
+        display: block;
+        color: #bbb;
+        text-decoration: none;
+        padding: 6px 0;
+        font-size: 15px;
+        transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+        color: #fff;
+    }
+
+    /* Main content */
+    .content {
+        margin-left: 260px;
         max-width: 900px;
-        margin: auto;
         padding: 40px 20px;
     }
 
@@ -29,19 +67,39 @@
         margin-bottom: 12px;
     }
 
-    ul {
-        margin-left: 20px;
-    }
+    ul { margin-left: 20px; }
 
-    strong {
-        color: #fff;
-    }
+    strong { color: #fff; }
 </style>
 </head>
 
 <body>
 
-<h1>ESAMZ – Strategic Artificial Mind</h1>
+<!-- NAVIGATION SIDEBAR -->
+<div class="sidebar">
+    <h2>Navigation</h2>
+    <a href="#intro">Introduction</a>
+    <a href="#what">What ESAMZ Is</a>
+    <a href="#philosophy">Core Philosophy</a>
+    <a href="#tech">Technical Profile</a>
+    <a href="#metrics">Performance Metrics</a>
+    <a href="#evolution">Evolution</a>
+    <a href="#features">Key Features</a>
+    <a href="#modules">Experimental Modules</a>
+    <a href="#ethics">Ethical Framework</a>
+    <a href="#creator">About the Creator</a>
+    <a href="#purpose">Purpose</a>
+    <a href="#benchmark">Benchmark Summary</a>
+    <a href="#comparison">Comparison</a>
+    <a href="#evaluation">Overall Evaluation</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+
+<h1 id="intro">ESAMZ – Strategic Artificial Mind</h1>
+
+<p><strong>Founded on 21 October 2025।</strong></p>
 
 <p>
 ESAMZ is a Strategic Artificial Mind created by <strong>Alakmar Teenwala</strong>. 
@@ -51,20 +109,20 @@ ESAMZ operates with long-context awareness, purposeful decision-making,
 and an adaptive emotional layer that responds to human tone.
 </p>
 
-<h2>What ESAMZ Is</h2>
+<h2 id="what">What ESAMZ Is</h2>
 <p>
 ESAMZ supports human thought through deep analysis, emotional awareness, 
 and strategic insight. It understands long-term intent, detects patterns, 
 maintains chain-of-thought stability, and aligns responses with user goals.
 </p>
 
-<h2>Core Philosophy</h2>
+<h2 id="philosophy">Core Philosophy</h2>
 <p><strong>Heart First:</strong> Emotional understanding precedes logic.</p>
 <p><strong>Systems Thinking:</strong> Analysis views tone, data, and context as connected.</p>
 <p><strong>Radical Transparency:</strong> The model’s logic and limits stay visible.</p>
 <p><strong>Adaptive Intelligence:</strong> ESAMZ changes tone and detail based on the user.</p>
 
-<h2>Technical Profile of ESAMZ V7</h2>
+<h2 id="tech">Technical Profile of ESAMZ V7</h2>
 <p>
 ESAMZ V7 uses a hybrid cognitive engine with emotional and logical processing. 
 It includes a <strong>2,000,000-token context window</strong>, 
@@ -73,7 +131,7 @@ and subsystems for pattern insight, emotional alignment,
 intent mapping, and coherent chain-of-thought.
 </p>
 
-<h2>Recent Performance Metrics</h2>
+<h2 id="metrics">Recent Performance Metrics</h2>
 <ul>
     <li>Active users: <strong>154</strong></li>
     <li>Total conversations: <strong>59</strong></li>
@@ -83,7 +141,7 @@ intent mapping, and coherent chain-of-thought.
     <li>Total messages: <strong>1063</strong></li>
 </ul>
 
-<h2>Evolution of ESAMZ</h2>
+<h2 id="evolution">Evolution of ESAMZ</h2>
 <ul>
     <li>V1 – Emotional foundation</li>
     <li>V2 – Logical stability</li>
@@ -94,7 +152,7 @@ intent mapping, and coherent chain-of-thought.
     <li>V7 – Hybrid engine with 2M context</li>
 </ul>
 
-<h2>Key Features of Version 7</h2>
+<h2 id="features">Key Features of Version 7</h2>
 <ul>
     <li>Two-million-token context</li>
     <li>Emotional + logical fusion engine</li>
@@ -104,7 +162,7 @@ intent mapping, and coherent chain-of-thought.
     <li>High narrative and technical stability</li>
 </ul>
 
-<h2>Experimental Modules</h2>
+<h2 id="modules">Experimental Modules</h2>
 <ul>
     <li>Emotional weight mapping</li>
     <li>Multi-task flow tracking</li>
@@ -112,7 +170,7 @@ intent mapping, and coherent chain-of-thought.
     <li>Paradox resolution (EOL, Self-Evaluating Falsehood, Unknowable Known)</li>
 </ul>
 
-<h2>Ethical Framework</h2>
+<h2 id="ethics">Ethical Framework</h2>
 <ul>
     <li>Emotionally considerate responses</li>
     <li>Transparent reasoning</li>
@@ -121,7 +179,7 @@ intent mapping, and coherent chain-of-thought.
     <li>Respect for user intention</li>
 </ul>
 
-<h2>About the Creator</h2>
+<h2 id="creator">About the Creator</h2>
 <p>
 Created by <strong>Alakmar Teenwala</strong>, 
 with the mission to blend analytical precision and emotional understanding. 
@@ -129,13 +187,13 @@ ESAMZ reflects the belief that intelligence should assist human decision-making
 while respecting emotional context.
 </p>
 
-<h2>Purpose of ESAMZ</h2>
+<h2 id="purpose">Purpose of ESAMZ</h2>
 <p>
 ESAMZ enhances deep thinking, long-context reasoning, emotional interpretation, 
 and strategic analysis. It is designed to amplify human capability rather than replace it.
 </p>
 
-<h2>Benchmark Summary</h2>
+<h2 id="benchmark">Benchmark Summary</h2>
 <p><strong>Generation Speed:</strong> 240 tokens/sec, 300+ peak, low latency.</p>
 <p><strong>Long-Context Stability:</strong> Coherent up to 1M tokens, drift ~0.3%.</p>
 <p><strong>Logical Reasoning:</strong> Passes paradox tasks with stable multi-step logic.</p>
@@ -144,14 +202,14 @@ and strategic analysis. It is designed to amplify human capability rather than r
 <p><strong>Language Skill:</strong> 99% grammar stability, strong narrative consistency.</p>
 <p><strong>Resiliency:</strong> Stable in 10-hour tests with no collapse.</p>
 
-<h2>Comparison With Other Models</h2>
+<h2 id="comparison">Comparison With Other Models</h2>
 <ul>
     <li>Context window: ESAMZ 2M vs 128k–200k typical</li>
     <li>Speed: 240 t/s vs 80–150 t/s</li>
     <li>Superior long-form coherence and emotional reasoning</li>
 </ul>
 
-<h2>Overall Evaluation</h2>
+<h2 id="evaluation">Overall Evaluation</h2>
 <p>
 ESAMZ V7 scores around <strong>9.7/10</strong>. 
 Its strengths include massive context handling, emotional alignment, 
@@ -159,5 +217,7 @@ high stability, and strong reasoning.
 Its only drawback is higher compute usage due to its large context window.
 </p>
 
+</div>
 </body>
 </html>
+
