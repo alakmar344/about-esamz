@@ -7,8 +7,8 @@
 <style>
     body {
         background: #000;
-        color: #e0e0e0;
-        font-family: 'Courier New', Courier, monospace;
+        color: #fff;
+        font-family: Arial, sans-serif;
         line-height: 1.6;
         margin: 0;
         padding: 0;
@@ -19,17 +19,19 @@
         padding: 40px 20px;
     }
     h1, h2, h3, h4 {
-        color: #ffffff;
+        color: #fff;
         font-weight: normal;
         margin: 40px 0 15px;
     }
     h1 { font-size: 2.2em; border-bottom: 1px solid #333; padding-bottom: 10px; }
-    h2 { font-size: 1.8em; color: #00ff9d; }
-    h3 { font-size: 1.4em; color: #00ff9d; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.4em; }
     p, li { font-size: 1.1em; margin-bottom: 1.2em; }
     ul { list-style-type: none; padding-left: 0; }
-    ul li:before { content: "> "; color: #00ff9d; }
-    .highlight { color: #00ff9d; font-weight: bold; }
+    ul li:before { content: "> "; color: #fff; }
+    .highlight { color: #fff; font-weight: bold; }
+    
+    /* Sidebar Styles */
     .sidebar {
         width: 240px;
         background: #111;
@@ -40,45 +42,110 @@
         padding: 30px 20px;
         overflow-y: auto;
         border-right: 1px solid #222;
+        transition: transform 0.3s ease;
+    }
+    .sidebar h2 {
+        color: #fff;
+        font-size: 1.2em;
+        margin-bottom: 20px;
     }
     .sidebar a {
         display: block;
-        color: #aaa;
+        color: #ccc;
         text-decoration: none;
         padding: 8px 0;
-        font-size: 1.05em;
+        font-size: 1em;
         transition: color 0.2s;
     }
-    .sidebar a:hover { color: #00ff9d; }
-    .content { margin-left: 260px; }
+    .sidebar a:hover { color: #fff; }
+    
+    /* Mobile Menu Button */
+    .menu-toggle {
+        display: none;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+    
+    .content { 
+        margin-left: 280px; 
+        padding: 20px;
+    }
+    
+    /* Links */
+    .external-links {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #333;
+    }
+    .external-links a {
+        display: block;
+        color: #ccc;
+        text-decoration: none;
+        padding: 5px 0;
+        font-size: 0.9em;
+    }
+    .external-links a:hover { color: #fff; }
+    
     @media (max-width: 768px) {
-        .sidebar { position: static; width: 100%; height: auto; border-right: none; border-bottom: 1px solid #222; }
-        .content { margin-left: 0; }
+        .menu-toggle {
+            display: block;
+        }
+        .sidebar { 
+            position: fixed;
+            transform: translateX(-100%);
+            width: 280px;
+            height: 100vh;
+            z-index: 999;
+        }
+        .sidebar.active {
+            transform: translateX(0);
+        }
+        .content { 
+            margin-left: 0;
+            padding-top: 60px;
+        }
     }
 </style>
 </head>
 <body>
 
+<!-- Mobile Menu Button -->
+<button class="menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
+
 <!-- Sidebar Navigation -->
-<div class="sidebar">
+<div class="sidebar" id="sidebar">
     <h2>Navigation</h2>
-    <a href="#intro">Introduction</a>
-    <a href="#what">What ESAMZ Is</a>
-    <a href="#philosophy">Core Philosophy</a>
-    <a href="#tech">Technical Profile</a>
-    <a href="#metrics">Performance Metrics</a>
-    <a href="#evolution">Evolution</a>
-    <a href="#features">Key Features</a>
-    <a href="#modules">Experimental Modules</a>
-    <a href="#ethics">Ethical Framework</a>
-    <a href="#creator">About the Creator</a>
-    <a href="#purpose">Purpose</a>
-    <a href="#benchmark">Benchmark Summary</a>
-    <a href="#sab">Strategic Alignment Benchmark</a>
-    <a href="#comparison">Comparison</a>
-    <a href="#evaluation">Overall Evaluation</a>
-    <a href="#press-release">Press Release</a>
-    <a href="#cookbook">ESAMZ AI Cookbook</a>
+    <a href="#intro" onclick="closeSidebarOnMobile()">Introduction</a>
+    <a href="#what" onclick="closeSidebarOnMobile()">What ESAMZ Is</a>
+    <a href="#philosophy" onclick="closeSidebarOnMobile()">Core Philosophy</a>
+    <a href="#tech" onclick="closeSidebarOnMobile()">Technical Profile</a>
+    <a href="#metrics" onclick="closeSidebarOnMobile()">Performance Metrics</a>
+    <a href="#evolution" onclick="closeSidebarOnMobile()">Evolution</a>
+    <a href="#features" onclick="closeSidebarOnMobile()">Key Features</a>
+    <a href="#modules" onclick="closeSidebarOnMobile()">Experimental Modules</a>
+    <a href="#ethics" onclick="closeSidebarOnMobile()">Ethical Framework</a>
+    <a href="#creator" onclick="closeSidebarOnMobile()">About the Creator</a>
+    <a href="#purpose" onclick="closeSidebarOnMobile()">Purpose</a>
+    <a href="#benchmark" onclick="closeSidebarOnMobile()">Benchmark Summary</a>
+    <a href="#sab" onclick="closeSidebarOnMobile()">Strategic Alignment Benchmark</a>
+    <a href="#comparison" onclick="closeSidebarOnMobile()">Comparison</a>
+    <a href="#evaluation" onclick="closeSidebarOnMobile()">Overall Evaluation</a>
+    <a href="#press-release" onclick="closeSidebarOnMobile()">Press Release</a>
+    <a href="#cookbook" onclick="closeSidebarOnMobile()">ESAMZ AI Cookbook</a>
+    
+    <div class="external-links">
+        <h3>External Links</h3>
+        <a href="https://eamz.site" target="_blank">eamz.site</a>
+        <a href="https://esamz.info" target="_blank">esamz.info</a>
+    </div>
 </div>
 
 <!-- Main Content -->
@@ -111,10 +178,11 @@
         ESAMZ v8.7 uses a hybrid cognitive engine with emotional and logical processing.
         It includes a <strong>200,000 token context window</strong>,
         <strong>240 tokens per second</strong> output speed,
-        <strong>real-time web search integration</strong> (via You.com API),
         and subsystems for pattern insight, emotional alignment,
         intent mapping, and coherent chain of thought.
         Model provider: <strong>Sarvam</strong>.
+        <br><br>
+        <em>Note: Web search functionality was introduced in v8 but removed in v8.7 due to stability issues and bug reports from users.</em>
     </p>
 
     <h2 id="metrics">Recent Performance Metrics</h2>
@@ -136,7 +204,8 @@
         <li>V5: Emotional mapping</li>
         <li>V6: Long context expansion</li>
         <li>V7: Hybrid engine with extended context</li>
-        <li>V8.7: Model provider switched to Sarvam and minor language improvements</li>
+        <li>V8: Web search integration introduced</li>
+        <li>V8.7: Model provider switched to Sarvam, web search removed due to bugs, minor language improvements</li>
     </ul>
 
     <h2 id="features">Key Features of Version 8.7</h2>
@@ -144,7 +213,6 @@
         <li>200,000 token context window</li>
         <li>Emotional and logical fusion engine</li>
         <li>Fast 240 tokens per second generation</li>
-        <li>Real-time web search (You.com API)</li>
         <li>Deep pattern detection</li>
         <li>Long-term intent alignment</li>
         <li>High narrative and technical stability</li>
@@ -202,7 +270,6 @@
     <p>
         To measure those outcomes, ESAMZ is evaluated using the Strategic Alignment Benchmark (SAB).
     </p>
-    <!-- ... (rest of SAB section remains unchanged) ... -->
 
     <!-- Comparison -->
     <h2 id="comparison">Comparison With Other Models</h2>
@@ -210,7 +277,6 @@
         <li>Context window: ESAMZ 200,000 vs typical 128,000–200,000.</li>
         <li>Speed: ESAMZ 240 tokens per second vs 80–150 typical.</li>
         <li>Superior long-form coherence and emotional reasoning.</li>
-        <li>Real-time web search capability.</li>
     </ul>
 
     <!-- Evaluation -->
@@ -218,7 +284,7 @@
     <p>
         ESAMZ v8.7 scores around <strong>9.7 out of 10</strong>.
         Its strengths include massive context handling, emotional alignment,
-        high stability, strong reasoning, and real-time web search.
+        high stability, and strong reasoning.
     </p>
 
     <!-- Press Release -->
@@ -241,8 +307,36 @@
     <h4>Media Contact</h4>
     <p>esamzai365@gmail.com</p>
 
-   <h2>the esamz cookbook has been removed for a while because of some technical issues in it </h2>
-    <!-- ... (the entire cookbook section remains unchanged) ... -->
+    <h2 id="cookbook">ESAMZ AI Cookbook</h2>
+    <p><em>The ESAMZ AI Cookbook has been temporarily removed from public access due to ongoing technical refinements and content updates. We apologize for any inconvenience and appreciate your patience as we work to improve the resource.</em></p>
 </div>
+
+<script>
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('active');
+}
+
+function closeSidebarOnMobile() {
+    if (window.innerWidth <= 768) {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.remove('active');
+    }
+}
+
+// Close sidebar when clicking outside on mobile
+document.addEventListener('click', function(event) {
+    const sidebar = document.getElementById('sidebar');
+    const menuToggle = document.querySelector('.menu-toggle');
+    
+    if (window.innerWidth <= 768 && 
+        !sidebar.contains(event.target) && 
+        !menuToggle.contains(event.target) && 
+        sidebar.classList.contains('active')) {
+        sidebar.classList.remove('active');
+    }
+});
+</script>
+
 </body>
 </html>
