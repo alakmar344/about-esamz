@@ -3,352 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ESAMZ v9 – Strategic Artificial Mind</title>
+<title>ESAMZ v9.1 – Strategic Artificial Mind</title>
 <style>
-    body {
-        background: #000;
-        color: #fff;
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 40px 20px;
-    }
-    h1, h2, h3, h4 {
-        color: #fff;
-        font-weight: normal;
-        margin: 40px 0 15px;
-    }
-    h1 { font-size: 2.2em; border-bottom: 1px solid #333; padding-bottom: 10px; }
-    h2 { font-size: 1.8em; }
-    h3 { font-size: 1.4em; }
-    p, li { font-size: 1.1em; margin-bottom: 1.2em; }
-    ul { list-style-type: none; padding-left: 0; }
-    ul li:before { content: "> "; color: #fff; }
-    .highlight { color: #fff; font-weight: bold; }
-    
-    /* Sidebar Styles */
-    .sidebar {
-        width: 240px;
-        background: #111;
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        padding: 30px 20px;
-        overflow-y: auto;
-        border-right: 1px solid #222;
-        transition: transform 0.3s ease;
-    }
-    .sidebar h2 {
-        color: #fff;
-        font-size: 1.2em;
-        margin-bottom: 20px;
-    }
-    .sidebar a {
-        display: block;
-        color: #ccc;
-        text-decoration: none;
-        padding: 8px 0;
-        font-size: 1em;
-        transition: color 0.2s;
-    }
-    .sidebar a:hover { color: #fff; }
-    
-    /* Mobile Menu Button */
-    .menu-toggle {
-        display: none;
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1000;
-        background: #111;
-        color: #fff;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        font-size: 18px;
-    }
-    
-    .content { 
-        margin-left: 280px; 
-        padding: 20px;
-    }
-    
-    /* Links */
-    .external-links {
-        margin-top: 30px;
-        padding-top: 20px;
-        border-top: 1px solid #333;
-    }
-    .external-links a {
-        display: block;
-        color: #ccc;
-        text-decoration: none;
-        padding: 5px 0;
-        font-size: 0.9em;
-    }
-    .external-links a:hover { color: #fff; }
-    
-    @media (max-width: 768px) {
-        .menu-toggle {
-            display: block;
-        }
-        .sidebar { 
-            position: fixed;
-            transform: translateX(-100%);
-            width: 280px;
-            height: 100vh;
-            z-index: 999;
-        }
-        .sidebar.active {
-            transform: translateX(0);
-        }
-        .content { 
-            margin-left: 0;
-            padding-top: 60px;
-        }
-    }
+body {
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+}
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+h1, h2, h3, h4 {
+    margin: 40px 0 15px;
+    font-weight: normal;
+}
+h1 { font-size: 2.2em; border-bottom: 1px solid #333; padding-bottom: 10px; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.4em; }
+p, li { font-size: 1.1em; margin-bottom: 1.2em; }
+ul { list-style: none; padding-left: 0; }
+ul li:before { content: "> "; }
+.sidebar {
+    width: 240px;
+    background: #111;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 30px 20px;
+    overflow-y: auto;
+    border-right: 1px solid #222;
+    transition: transform 0.3s ease;
+}
+.sidebar a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    padding: 8px 0;
+}
+.sidebar a:hover { color: #fff; }
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 10px;
+}
+.content { margin-left: 280px; padding: 20px; }
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    .sidebar { transform: translateX(-100%); width: 280px; }
+    .sidebar.active { transform: translateX(0); }
+    .content { margin-left: 0; padding-top: 60px; }
+}
 </style>
 </head>
 <body>
 
-<!-- Mobile Menu Button -->
 <button class="menu-toggle" onclick="toggleSidebar()">☰ Menu</button>
 
-<!-- Sidebar Navigation -->
 <div class="sidebar" id="sidebar">
-    <h2>Navigation</h2>
-    <a href="#intro" onclick="closeSidebarOnMobile()">Introduction</a>
-    <a href="#what" onclick="closeSidebarOnMobile()">What ESAMZ Is</a>
-    <a href="#philosophy" onclick="closeSidebarOnMobile()">Core Philosophy</a>
-    <a href="#tech" onclick="closeSidebarOnMobile()">Technical Profile</a>
-    <a href="#metrics" onclick="closeSidebarOnMobile()">Performance Metrics</a>
-    <a href="#evolution" onclick="closeSidebarOnMobile()">Evolution</a>
-    <a href="#features" onclick="closeSidebarOnMobile()">Key Features</a>
-    <a href="#modules" onclick="closeSidebarOnMobile()">Experimental Modules</a>
-    <a href="#ethics" onclick="closeSidebarOnMobile()">Ethical Framework</a>
-    <a href="#creator" onclick="closeSidebarOnMobile()">About the Creator</a>
-    <a href="#purpose" onclick="closeSidebarOnMobile()">Purpose</a>
-    <a href="#benchmark" onclick="closeSidebarOnMobile()">Benchmark Summary</a>
-    <a href="#sab" onclick="closeSidebarOnMobile()">Strategic Alignment Benchmark</a>
-    <a href="#comparison" onclick="closeSidebarOnMobile()">Comparison</a>
-    <a href="#evaluation" onclick="closeSidebarOnMobile()">Overall Evaluation</a>
-    <a href="#press-release" onclick="closeSidebarOnMobile()">Press Release</a>
-    <a href="#cookbook" onclick="closeSidebarOnMobile()">ESAMZ AI Cookbook</a>
-    
-    <div class="external-links">
-        <h3>External Links</h3>
-        <a href="https://eamz.site " target="_blank">eamz.site</a>
-        <a href="https://esamz.info " target="_blank">esamz.info</a>
-    </div>
+<h2>Navigation</h2>
+<a href="#intro" onclick="closeSidebarOnMobile()">Introduction</a>
+<a href="#what" onclick="closeSidebarOnMobile()">What ESAMZ Is</a>
+<a href="#philosophy" onclick="closeSidebarOnMobile()">Core Philosophy</a>
+<a href="#tech" onclick="closeSidebarOnMobile()">Technical Profile</a>
+<a href="#metrics" onclick="closeSidebarOnMobile()">Performance Metrics</a>
+<a href="#evolution" onclick="closeSidebarOnMobile()">Evolution</a>
+<a href="#features" onclick="closeSidebarOnMobile()">Key Features</a>
+<a href="#modules" onclick="closeSidebarOnMobile()">Experimental Modules</a>
+<a href="#ethics" onclick="closeSidebarOnMobile()">Ethical Framework</a>
+<a href="#creator" onclick="closeSidebarOnMobile()">About the Creator</a>
+<a href="#purpose" onclick="closeSidebarOnMobile()">Purpose</a>
+<a href="#benchmark" onclick="closeSidebarOnMobile()">Benchmark Summary</a>
+<a href="#evaluation" onclick="closeSidebarOnMobile()">Overall Evaluation</a>
+<a href="#press-release" onclick="closeSidebarOnMobile()">Press Release</a>
 </div>
 
-<!-- Main Content -->
 <div class="content">
-    <h1 id="intro">ESAMZ v9 – Strategic Artificial Mind</h1>
-    <p><strong>Founded on 21 October 2025.</strong></p>
-    <p>
-        ESAMZ is a Strategic Artificial Mind created by <strong>Alakmar Teenwala</strong>.
-        It merges emotional understanding with precise logical reasoning,
-        acting as a thinking partner rather than a conventional chatbot.
-        ESAMZ operates with long context awareness, purposeful decision making,
-        and an adaptive emotional layer that responds to human tone.
-    </p>
+<h1 id="intro">ESAMZ v9.1 – Strategic Artificial Mind</h1>
+<p><strong>Founded on 21 October 2025.</strong></p>
 
-    <h2 id="what">What ESAMZ Is</h2>
-    <p>
-        ESAMZ supports human thought through deep analysis, emotional awareness,
-        and strategic insight. It understands long-term intent, detects patterns,
-        maintains chain-of-thought stability, and aligns responses with user goals.
-    </p>
+<p>
+ESAMZ is a Strategic Artificial Mind created by <strong>Alakmar Teenwala</strong>.
+It combines emotional awareness with structured reasoning,
+acting as a thinking partner rather than a conventional chatbot.
+</p>
 
-    <h2 id="philosophy">Core Philosophy</h2>
-    <p><strong>Heart First.</strong> Emotional understanding precedes logic.</p>
-    <p><strong>Systems Thinking.</strong> Analysis views tone, data, and context as connected.</p>
-    <p><strong>Radical Transparency.</strong> The model shows its logic and limits clearly.</p>
-    <p><strong>Adaptive Intelligence.</strong> ESAMZ changes tone and detail based on the user.</p>
+<h2 id="what">What ESAMZ Is</h2>
+<p>
+ESAMZ supports long horizon thinking, pattern recognition,
+and goal aligned reasoning while remaining emotionally considerate.
+</p>
 
-    <h2 id="tech">Technical Profile of ESAMZ v9</h2>
-    <p>
-        ESAMZ v9 uses a hybrid cognitive engine with emotional and logical processing.
-        It includes a <strong>200,000 token context window</strong>,
-        <strong>240 tokens per second</strong> output speed,
-        and subsystems for pattern insight, emotional alignment,
-        intent mapping, and coherent chain of thought.
-        Model provider: <strong>Sarvam</strong>.
-        <br><br>
-        <strong>New in v9:</strong> Full voice integration with natural speech synthesis and recognition capabilities.
-        <br>
-        <em>Note: Web search functionality was introduced in v8 but removed in v8.7 due to stability issues and bug reports from users.</em>
-    </p>
+<h2 id="philosophy">Core Philosophy</h2>
+<p><strong>Heart First.</strong> Emotional understanding precedes logic.</p>
+<p><strong>Systems Thinking.</strong> Context, tone, and intent are inseparable.</p>
+<p><strong>Transparency.</strong> Capabilities and limits are clearly communicated.</p>
+<p><strong>Adaptation.</strong> Responses scale in depth and tone per user need.</p>
 
-    <h2 id="metrics">Recent Performance Metrics</h2>
-    <ul>
-        <li>Active users: <strong>~3,000</strong></li>
-        <li>Total conversations: <strong>~5,000+</strong></li>
-        <li>Average interactions per session: <strong>10.2</strong></li>
-        <li>Token speed: <strong>260 tokens per second</strong></li>
-        <li>User satisfaction: <strong>96%</strong></li>
-        <li>Total messages: <strong>~20,000</strong></li>
-        <li>Voice interactions: <strong>~1,200+</strong> <em>(new in v9)</em></li>
-    </ul>
+<h2 id="tech">Technical Profile of ESAMZ v9.1</h2>
+<p>
+ESAMZ v9.1 operates on a hybrid reasoning architecture
+with a <strong>200,000 token context window</strong>
+and sustained output of <strong>240 tokens per second</strong>.
+Model provider: <strong>Sarvam</strong>.
+</p>
+<p>
+<strong>Update in v9.1:</strong> Web search functionality has been reintroduced
+after architectural improvements and stability validation.
+</p>
 
-    <h2 id="evolution">Evolution of ESAMZ</h2>
-    <ul>
-        <li>V1: Emotional foundation</li>
-        <li>V2: Logical stability</li>
-        <li>V3: Context anchoring</li>
-        <li>V4: Transparency improvements</li>
-        <li>V5: Emotional mapping</li>
-        <li>V6: Long context expansion</li>
-        <li>V7: Hybrid engine with extended context</li>
-        <li>V8: Web search integration introduced</li>
-        <li>V8.7: Model provider switched to Sarvam, web search removed due to bugs, minor language improvements</li>
-        <li><strong>V9: Voice integration - natural speech synthesis and recognition</strong></li>
-    </ul>
+<h2 id="metrics">Recent Performance Metrics</h2>
+<ul>
+<li>Active users approximately 3,000</li>
+<li>Total conversations over 5,000</li>
+<li>Average interactions per session 10.2</li>
+<li>Token generation speed 240 to 260 tokens per second</li>
+<li>User satisfaction 96 percent</li>
+<li>Total messages processed over 20,000</li>
+</ul>
 
-    <h2 id="features">Key Features of Version 9</h2>
-    <ul>
-        <li>200,000 token context window</li>
-        <li>Emotional and logical fusion engine</li>
-        <li>Fast 240 tokens per second generation</li>
-        <li>Deep pattern detection</li>
-        <li>Long-term intent alignment</li>
-        <li>High narrative and technical stability</li>
-        <li><strong>Voice interaction capabilities</strong> <em>(new)</em></li>
-        <li><strong>Natural speech synthesis</strong> <em>(new)</em></li>
-        <li><strong>Voice recognition and response</strong> <em>(new)</em></li>
-    </ul>
+<h2 id="evolution">Evolution of ESAMZ</h2>
+<ul>
+<li>V1 Emotional foundation</li>
+<li>V2 Logical stability</li>
+<li>V3 Context anchoring</li>
+<li>V4 Transparency improvements</li>
+<li>V5 Emotional mapping</li>
+<li>V6 Long context expansion</li>
+<li>V7 Hybrid reasoning engine</li>
+<li>V8 Web search introduced</li>
+<li>V8.7 Provider switch to Sarvam and temporary removal of web search</li>
+<li><strong>V9.1 Web search restored with improved reliability</strong></li>
+</ul>
 
-    <h2 id="modules">Experimental Modules</h2>
-    <ul>
-        <li>Emotional weight mapping</li>
-        <li>Multi-task flow tracking</li>
-        <li>Strategic decision layer</li>
-        <li>Paradox resolution (self-evaluating falsehoods & unknowable systems)</li>
-        <li><strong>Voice emotion detection</strong> <em>(new)</em></li>
-    </ul>
+<h2 id="features">Key Features of Version 9.1</h2>
+<ul>
+<li>200,000 token context handling</li>
+<li>Emotional and logical fusion engine</li>
+<li>High speed text generation</li>
+<li>Deep pattern recognition</li>
+<li>Long term intent alignment</li>
+<li>Integrated web search for factual grounding</li>
+</ul>
 
-    <h2 id="ethics">Ethical Framework</h2>
-    <ul>
-        <li>Emotionally considerate responses</li>
-        <li>Transparent reasoning</li>
-        <li>Cultural sensitivity</li>
-        <li>No manipulation or bias drift</li>
-        <li>Respect for user intention</li>
-        <li><strong>Voice privacy protection</strong> <em>(new)</em></li>
-    </ul>
+<h2 id="modules">Experimental Modules</h2>
+<ul>
+<li>Emotional weight mapping</li>
+<li>Multi task flow tracking</li>
+<li>Strategic decision layer</li>
+<li>Paradox resolution systems</li>
+</ul>
 
-    <h2 id="creator">About the Creator</h2>
-    <p>
-        Created by <strong>Alakmar Teenwala</strong>,
-        with the mission to blend analytical precision and emotional understanding.
-        ESAMZ reflects the belief that intelligence should assist human decision making
-        while respecting emotional context.
-    </p>
+<h2 id="ethics">Ethical Framework</h2>
+<ul>
+<li>Emotionally considerate responses</li>
+<li>Transparent reasoning</li>
+<li>Cultural sensitivity</li>
+<li>No manipulation or behavioral steering</li>
+<li>Respect for user autonomy</li>
+</ul>
 
-    <h2 id="purpose">Purpose of ESAMZ</h2>
-    <p>
-        ESAMZ enhances deep thinking, long context reasoning, emotional interpretation,
-        and strategic analysis. It is designed to amplify human capability rather than replace it.
-        With voice integration in v9, it now offers more natural, accessible interaction methods.
-    </p>
+<h2 id="creator">About the Creator</h2>
+<p>
+Created by <strong>Alakmar Teenwala</strong> with the goal of building
+an artificial intelligence that enhances human thinking
+without replacing judgment or intent.
+</p>
 
-    <h2 id="benchmark">Benchmark Summary</h2>
-    <p><strong>Generation Speed:</strong> 240 tokens per second with bursts over 300.</p>
-    <p><strong>Long Context Stability:</strong> Coherent up to 200,000 tokens with drift ~0.3%.</p>
-    <p><strong>Logical Reasoning:</strong> Passes paradox tasks with stable multi-step logic.</p>
-    <p><strong>Emotional Intelligence:</strong> ~96% tone accuracy.</p>
-    <p><strong>Strategic Intelligence:</strong> Excellent planning and pattern recognition.</p>
-    <p><strong>Language Skill:</strong> 99.5% grammar stability.</p>
-    <p><strong>Voice Quality:</strong> Natural speech synthesis with 95% clarity <em>(new)</em>.</p>
-    <p><strong>Resiliency:</strong> Stable in 10-hour continuous tests.</p>
+<h2 id="purpose">Purpose of ESAMZ</h2>
+<p>
+ESAMZ is designed to amplify reasoning, emotional understanding,
+and strategic clarity while remaining dependable and controlled.
+</p>
 
-    <!-- SAB SECTION -->
-    <h2 id="sab">ESAMZ Strategic Alignment Benchmark (SAB)</h2>
-    <h3>Why ESAMZ Uses Its Own Benchmark</h3>
-    <p>
-        Traditional AI benchmarks focus on narrow skills such as math problems, trivia recall,
-        or short context reasoning. ESAMZ is designed as a strategic artificial mind
-        intended to support long-horizon thinking, sensitive human communication,
-        and complex decision making.
-    </p>
-    <p>
-        To measure those outcomes, ESAMZ is evaluated using the Strategic Alignment Benchmark (SAB).
-    </p>
+<h2 id="benchmark">Benchmark Summary</h2>
+<p>Context stability up to 200,000 tokens.</p>
+<p>Logical reasoning stable across multi step problems.</p>
+<p>High emotional tone alignment.</p>
+<p>Strong factual grounding with web search in v9.1.</p>
 
-    <!-- Comparison -->
-    <h2 id="comparison">Comparison With Other Models</h2>
-    <ul>
-        <li>Context window: ESAMZ 200,000 vs typical 128,000–200,000.</li>
-        <li>Speed: ESAMZ 240 tokens per second vs 80–150 typical.</li>
-        <li>Superior long-form coherence and emotional reasoning.</li>
-        <li><strong>Voice integration: ESAMZ v9 vs limited/no voice in typical models</strong></li>
-    </ul>
+<h2 id="evaluation">Overall Evaluation</h2>
+<p>
+ESAMZ v9.1 scores approximately <strong>9.7 out of 10</strong>
+for stability, depth, and alignment.
+</p>
 
-    <!-- Evaluation -->
-    <h2 id="evaluation">Overall Evaluation</h2>
-    <p>
-        ESAMZ v9 scores around <strong>9.8 out of 10</strong>.
-        Its strengths include massive context handling, emotional alignment,
-        high stability, strong reasoning, and now natural voice interaction capabilities.
-    </p>
+<h2 id="press-release">Press Release</h2>
+<p>
+ESAMZ v9.1 marks a return of web grounded intelligence
+combined with long context reasoning and emotional alignment.
+It is designed for developers, researchers, and thinkers
+who value stability over spectacle.
+</p>
 
-    <!-- Press Release -->
-    <h2 id="press-release">Press Release</h2>
-    <p>
-        For developers, businesses, and creators looking to integrate this powerful technology,
-        the "ESAMZ AI Cookbook v1.0" is now available. This practical guide provides ready-to-use recipes
-        for complex tasks, such as generating strategic startup roadmaps, performing in-depth market research,
-        and converting rough text into premium brand language. It also includes automation recipes for platforms like n8n,
-        showcasing the tangible ROI of integrating ESAMZ v9.
-    </p>
-    <h4>About ESAMZ AI</h4>
-    <p>
-        ESAMZ AI is a next-generation artificial intelligence system focused on delivering human-like reasoning,
-        strategic clarity, and precise decision intelligence. Founded by Alakmar Teenwala, ESAMZ AI is engineered
-        to think with depth, structure, and purpose. With the introduction of voice capabilities in v9, ESAMZ now
-        offers even more natural and accessible interaction methods. Its mission is to create a dependable artificial mind
-        that enhances decision-making and elevates human thinking, establishing a new standard for stable,
-        context-aware, and purpose-driven AI.
-    </p>
-    <h4>Media Contact</h4>
-    <p>esamzai365@gmail.com</p>
-
-    <h2 id="cookbook">ESAMZ AI Cookbook</h2>
-    <p><em>The ESAMZ AI Cookbook has been temporarily removed from public access due to ongoing technical refinements and content updates. We apologize for any inconvenience and appreciate your patience as we work to improve the resource.</em></p>
+<p>Media Contact: esamzai365@gmail.com</p>
 </div>
 
 <script>
 function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('active');
+    document.getElementById('sidebar').classList.toggle('active');
 }
-
 function closeSidebarOnMobile() {
     if (window.innerWidth <= 768) {
-        const sidebar = document.getElementById('sidebar');
-        sidebar.classList.remove('active');
+        document.getElementById('sidebar').classList.remove('active');
     }
 }
-
-// Close sidebar when clicking outside on mobile
-document.addEventListener('click', function(event) {
-    const sidebar = document.getElementById('sidebar');
-    const menuToggle = document.querySelector('.menu-toggle');
-    
-    if (window.innerWidth <= 768 && 
-        !sidebar.contains(event.target) && 
-        !menuToggle.contains(event.target) && 
-        sidebar.classList.contains('active')) {
-        sidebar.classList.remove('active');
-    }
-});
 </script>
 
 </body>
